@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { MoviesModule } from './movies/movies.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserEntity } from './users/users.entity';
 @Module({
-  imports: [MoviesModule, AuthModule, UsersModule],
+  imports: [UsersModule, MoviesModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
 })
