@@ -3,7 +3,6 @@ import { Repository } from 'typeorm';
 import { UserEntity } from './entities/users.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 
-// This should be a real class/interface representing a user entity
 export type User = {
   id: number;
   username: string;
@@ -16,19 +15,6 @@ export class UsersService {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
   ) {}
-
-  private readonly users = [
-    {
-      userId: 1,
-      username: 'john',
-      password: 'changeme',
-    },
-    {
-      userId: 2,
-      username: 'maria',
-      password: 'guess',
-    },
-  ];
 
   async createUser(username: string, password: string): Promise<UserEntity> {
     const user = this.userRepository.create({ username, password });

@@ -7,8 +7,10 @@ async function bootstrap() {
 
   // Swagger Configuration
   const config = new DocumentBuilder()
-    .setTitle('Your API')
-    .setDescription('API description')
+    .setTitle('Movies')
+    .setDescription('A movie CRUD api with authenticated routes')
+    .addSecurity('basic', { type: 'http', scheme: 'bearer' })
+    .addBearerAuth()
     .setVersion('1.0')
     .build();
 
