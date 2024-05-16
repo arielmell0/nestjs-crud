@@ -12,9 +12,9 @@ import 'dotenv/config';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: process.env.DB_TYPE,
+      type: process.env.DB_TYPE as 'postgres' | 'mysql' | 'mongodb',
       host: process.env.DB_HOST,
-      port: process.env.DB_PORT,
+      port: parseInt(process.env.DB_PORT),
       password: process.env.DB_PASSWORD,
       username: process.env.DB_USERNAME,
       entities: [UserEntity, MovieEntity],
